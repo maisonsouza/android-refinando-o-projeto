@@ -1,7 +1,11 @@
 package br.com.alura.agenda.ui.adapter;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,7 +19,7 @@ import br.com.alura.agenda.model.Aluno;
 
 public class ListaAlunosAdapter extends BaseAdapter {
 
-    private final List<Aluno> alunos = new ArrayList<>();
+    private final List<Aluno> alunos = new ArrayList<Aluno>();
     private Context context;
 
     public ListaAlunosAdapter(Context context) {
@@ -44,7 +48,7 @@ public class ListaAlunosAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View viewCriada = LayoutInflater.from(context)
-                .inflate(R.layout.item_aluno, parent,false);
+                .inflate(R.layout.item_aluno, parent, false);
         Aluno alunoDevolvido = alunos.get(position);
         TextView nomeAluno = viewCriada.findViewById(R.id.textNome);
         TextView telefoneAluno = viewCriada.findViewById(R.id.textTelefone);
@@ -61,7 +65,9 @@ public class ListaAlunosAdapter extends BaseAdapter {
         alunos.addAll(todos);
     }
 
-    public void remove(Aluno aluno) {
+    public void remove(final Aluno aluno) {
         alunos.remove(aluno);
+        notifyDataSetChanged();
+
     }
 }
