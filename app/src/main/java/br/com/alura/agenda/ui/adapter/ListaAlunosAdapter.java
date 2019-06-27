@@ -22,7 +22,6 @@ public class ListaAlunosAdapter extends BaseAdapter {
         this.context = context;
     }
 
-
     //Indica a quantidade de elementos de um adapter
     @Override
     public int getCount() {
@@ -31,7 +30,7 @@ public class ListaAlunosAdapter extends BaseAdapter {
 
     //Representa o item com base em uma posição
     @Override
-    public Object getItem(int position) {
+    public Aluno getItem(int position) {
         return alunos.get(position);
     }
 
@@ -41,27 +40,31 @@ public class ListaAlunosAdapter extends BaseAdapter {
         return alunos.get(position).getId();
     }
 
+    // Onde Criamos a View
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View viewCriada = LayoutInflater.from(context)
-                .inflate(R.layout.item_aluno, parent,false);
+                .inflate(R.layout.item_aluno, parent, false);
         Aluno alunoDevolvido = alunos.get(position);
-        TextView nomeAluno = viewCriada.findViewById(R.id.textNome);
-        TextView telefoneAluno = viewCriada.findViewById(R.id.textTelefone);
-        nomeAluno.setText(alunoDevolvido.getNome());
-        telefoneAluno.setText(alunoDevolvido.getTelefone());
+        vincula(viewCriada, alunoDevolvido);
         return viewCriada;
     }
 
-    public void clear() {
-        alunos.clear();
+    private void vincula(View viewCriada, Aluno aluno) {
+        TextView nomeAluno = viewCriada.findViewById(R.id.textNomeAluno);
+        nomeAluno.setText(aluno.getNome());
+        TextView telefoneAluno = viewCriada.findViewById(R.id.textTelefoneAluno);
+        telefoneAluno.setText(aluno.getTelefone());
     }
 
-    public void addAll(List<Aluno> todos) {
-        alunos.addAll(todos);
+
+    public void update(List<Aluno> alunos) {
+        this.alunos.clear();
+        this.alunos.addAll(alunos);
     }
 
     public void remove(Aluno aluno) {
         alunos.remove(aluno);
+        notifyDataSetChanged();
     }
 }

@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-<TextView
-    android:id="@+id/textNome"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="TextView"
-    android:layout_margin="8dp"
-    tools:text="Maison"
-    android:textSize="24sp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" />
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textTelefone"
+        android:id="@+id/textNomeAluno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+        tools:text="Maison" />
+
+    <TextView
+        android:id="@+id/textTelefoneAluno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        tools:text="9822255555"/>
+        tools:text="92981840807" />
 </LinearLayout>
