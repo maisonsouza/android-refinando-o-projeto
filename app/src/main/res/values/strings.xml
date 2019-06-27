@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Agenda</string>
+    <string name="texto_nome">Nome</string>
+    <string name="texto_telefone">Telefone</string>
+    <string name="texto_email">Email</string>
+    <string name="salvar_o_aluno">Salvar o aluno</string>
+    <string name="remover">Remover</string>
+
 </resources>
